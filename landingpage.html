@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>charity: water</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #fdf6ec;
+      color: #1a1a1a;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 40px;
+      background: #ffffff;
+      border-bottom: 1px solid #ececec;
+      position: relative;
+      z-index: 10;
+    }
+
+    .nav-logo img {
+      height: 28px;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #1a1a1a;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links li a:hover { color: #F5C014; }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-signin {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 18px;
+      background: #cccccc;
+    }
+
+    .nav-social {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .nav-social a {
+      color: #1a1a1a;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      transition: color 0.2s;
+    }
+
+    .nav-social a:hover { color: #F5C014; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 520px;
+      background-image: url('Malawi_2023_CG-3108.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      display: flex;
+      align-items: center;
+      padding: 60px 40px 100px 40px;
+    }
+
+    .hero-card {
+      background: #fdf6ec;
+      border-radius: 20px;
+      padding: 40px 44px;
+      max-width: 380px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-card h1 {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.25;
+      color: #1a1a1a;
+      margin-bottom: 14px;
+    }
+
+    .hero-card p {
+      font-size: 15px;
+      font-weight: 600;
+      color: #444444;
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    .btn-give {
+      display: inline-block;
+      background: #F5C014;
+      color: #1a1a1a;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 14px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-give:hover { background: #e0ad00; }
+
+    /* ── WAVE ── */
+    .wave-wrapper {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      z-index: 1;
+    }
+
+    .wave-wrapper svg {
+      display: block;
+      width: 100%;
+      height: 90px;
+    }
+
+    /* ── EMAIL SECTION ── */
+    .email-section {
+      background: #fdf6ec;
+      display: flex;
+      justify-content: flex-end;
+      padding: 40px 40px 48px 40px;
+    }
+
+    .email-box {
+      max-width: 340px;
+      width: 100%;
+    }
+
+    .email-box h3 {
+      font-size: 15px;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+    }
+
+    .email-box p {
+      font-size: 12px;
+      color: #777777;
+      margin-bottom: 14px;
+    }
+
+    .email-name-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .email-name-row input,
+    .email-row input {
+      flex: 1;
+      padding: 10px 14px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 13px;
+      font-family: 'Nunito', sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
+    }
+
+    .email-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .email-row input {
+      flex: 1;
+    }
+
+    .btn-subscribe {
+      background: #F5C014;
+      color: #1a1a1a;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .btn-subscribe:hover { background: #e0ad00; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      nav { padding: 12px 20px; flex-wrap: wrap; gap: 12px; }
+      .nav-links { gap: 16px; flex-wrap: wrap; }
+      .hero { padding: 40px 20px 100px 20px; }
+      .hero-card { max-width: 100%; }
+      .email-section { justify-content: center; padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">
+      <img src="charitywater_logo_horizontal_BlackText.png" alt="charity: water" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Take Action ▾</a></li>
+      <li><a href="#">About Us ▾</a></li>
+      <li><a href="#">Impact</a></li>
+      <li><a href="#">How It Works</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="nav-signin" href="#">Sign In</a>
+      <div class="nav-divider"></div>
+      <div class="nav-social">
+        <a href="#" aria-label="Instagram">&#9711;</a>
+        <a href="#" aria-label="Facebook"><strong>f</strong></a>
+        <a href="#" aria-label="LinkedIn"><strong>in</strong></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-card">
+      <h1>$20 gives a family of 6 clean water for a year.</h1>
+      <p>100% of your donation funds real water projects.</p>
+      <a class="btn-give" href="#">Give Now</a>
+    </div>
+
+    <!-- wave -->
+    <div class="wave-wrapper">
+      <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C200,90 400,0 600,50 C800,100 1000,10 1200,50 C1320,75 1400,60 1440,55 L1440,90 L0,90 Z" fill="#8ab4c2" opacity="0.55"/>
+        <path d="M0,60 C180,20 400,80 650,55 C900,30 1100,75 1300,55 C1380,45 1420,65 1440,70 L1440,90 L0,90 Z" fill="#fdf6ec"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- EMAIL SIGNUP -->
+  <section class="email-section">
+    <div class="email-box">
+      <h3>Add Impact To Your Inbox</h3>
+      <p>Get our emails to stay in the know.</p>
+      <div class="email-name-row">
+        <input type="text" placeholder="First Name" />
+        <input type="text" placeholder="Last Name" />
+      </div>
+      <div class="email-row">
+        <input type="email" placeholder="Your e-mail here..." />
+        <button class="btn-subscribe">subscribe 💧</button>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
